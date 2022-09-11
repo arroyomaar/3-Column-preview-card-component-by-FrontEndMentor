@@ -1,0 +1,80 @@
+@import 'funciones';
+$Bright_orange: hsl(31, 77%, 52%);
+$Dark_cyan: hsl(184, 100%, 22%);
+$Very_dark_cyan: hsl(179, 100%, 13%);
+$Transparent_white_paragraphs: hsla(0, 0%, 100%, 0.75);
+$Very_light_gray_background_headings_buttons: hsl(0, 0%, 95%);
+$Fontsize: 15px;
+$font_family:'Lexend Deca';
+@mixin botonm($color_back,$color_font) {
+    button{
+        background-color: $color_back;
+        color:$color_font;
+        border:1px solid $color_back;
+        &:hover{
+            background-color: $color_font;
+            color:$color_back;
+            border:1px solid $color_back;
+        }
+    }
+
+}
+@include background_size_color($font_family,$Fontsize,400,$Transparent_white_paragraphs,
+100%,1505px,none,
+325px,1320px,15px,
+100%,800px,none,
+920px,500px,15px);
+.card{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    @media screen and (min-width:1440px) {
+        flex-direction: row;
+    }
+}
+.card-model{
+    padding: 45px;
+    text-align: left;
+    color: $Very_light_gray_background_headings_buttons;
+    // overflow: hidden;
+    @include with_heigth(100%,100%,none);
+    // border-bottom-left-radius: 0;
+    // border-bottom-right-radius: 0;
+    .ima{
+        @include with_heigth(65px,45px,none);
+        margin-bottom: 30px;
+    }
+    .descripcion{
+        h1{
+            font-family:'Big Shoulders Display', cursive;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        p{
+            line-height: 2;
+            margin-bottom: 20px;
+            @media screen and (min-width:1440px) {
+                margin-bottom: 80px;
+            }
+        }
+    }
+    button{
+        @include with_heigth(150px,50px,50px);
+        // @media screen and (min-width:1440px) {
+        //     margin-bottom: 10px;
+        // }
+    }
+}
+.sedan{
+    background-color:$Bright_orange ;
+    @include botonm($Very_light_gray_background_headings_buttons,$Bright_orange);
+}
+.suvs{
+    background-color:$Dark_cyan;
+    @include botonm($Very_light_gray_background_headings_buttons,$Dark_cyan);
+}
+.luxury{
+    background-color:$Very_dark_cyan;
+    @include botonm($Very_light_gray_background_headings_buttons,$Very_dark_cyan);
+}
